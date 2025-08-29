@@ -205,3 +205,9 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Game-generated data file
+highscore.txt
+
+# Game executable (if built)
+Shmup.exe
