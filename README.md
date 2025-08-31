@@ -24,6 +24,22 @@ The original tutorial code and structure can be found in their [pygame_tutorials
     python Shmup.py
     ```
 
+## Building a Standalone Executable (Windows)
+
+This game can be packaged into a standalone folder using [PyInstaller](https://pyinstaller.org/).
+
+1.  Install PyInstaller inside your virtual environment:
+    ```bash
+    pip install pyinstaller
+    ```
+2.  Run the build command from the project's root directory:
+    ```bash
+    pyinstaller --onefolder --windowed --add-data "img;img" --add-data "snd;snd" --icon=game_icon.ico Shmup.py
+    ```
+3.  The executable (`Shmup.exe`) and all required game files will be created in the `dist/` directory. You can distribute the entire `dist\Shmup` folder.
+
+*Note: The `dist/` and `build/` directories, along with any `.spec` file, are excluded from this repository by the `.gitignore` file.*
+
 ## Controls
 *   **Arrow Keys:** Move your ship
 *   **Spacebar:** Fire lasers
