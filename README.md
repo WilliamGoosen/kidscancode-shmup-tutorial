@@ -26,17 +26,28 @@ The original tutorial code and structure can be found in their [pygame_tutorials
 
 ## Building a Standalone Executable (Windows)
 
-This game can be packaged into a standalone folder using [PyInstaller](https://pyinstaller.org/).
+This game can be packaged into a standalone application using [PyInstaller](https://pyinstaller.org/).
 
 1.  Install PyInstaller inside your virtual environment:
     ```bash
     pip install pyinstaller
     ```
-2.  Run the build command from the project's root directory:
+
+2.  Run one of the following build commands from the project's root directory:
+
+    **Option 1: Create a Distribution Folder (Recommended for testing)**
+    *Easier to debug if necessary, as all files are in one folder.*
     ```bash
-    pyinstaller --onefolder --windowed --add-data "img;img" --add-data "snd;snd" --icon=game_icon.ico Shmup.py
+    pyinstaller --onedir --windowed --add-data "img;img" --add-data "snd;snd" --icon=game_icon.ico Shmup.py
     ```
-3.  The executable (`Shmup.exe`) and all required game files will be created in the `dist/` directory. You can distribute the entire `dist\Shmup` folder.
+    *The executable (`Shmup.exe`) and all required game files will be created in the `dist/Shmup/` directory. You can distribute the entire `dist/Shmup` folder.*
+
+    **Option 2: Create a Single Executable File**
+    *Creates a single, portable `.exe` file for distribution.*
+    ```bash
+    pyinstaller --onefile --windowed --add-data "img;img" --add-data "snd;snd" --icon=game_icon.ico Shmup.py
+    ```
+    *A single executable file (`Shmup.exe`) will be created in the `dist/` directory.*
 
 *Note: The `dist/` and `build/` directories, along with any `.spec` file, are excluded from this repository by the `.gitignore` file.*
 
