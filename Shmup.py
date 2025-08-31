@@ -69,16 +69,27 @@ def show_start_screen():
     waiting = True
     while waiting:
         clock.tick(FPS)
-        keystate = pg.key.get_pressed()
+        # keystate = pg.key.get_pressed()
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 pg.quit()
                 exit()
-            if keystate[pg.K_ESCAPE]:
-                pg.quit()
-                exit()
-            if event.type == pg.KEYUP:
-                waiting = False
+             # --- NEW LOGIC STARTS HERE ---
+            if event.type == pg.KEYDOWN:
+                # A key was PRESSED. Now let's see which one.
+                if event.key == pg.K_ESCAPE:
+                    # Specifically, the ESC key was pressed. Quit.
+                    pg.quit()
+                    exit()                    
+                else:
+                # Any other key (Space, Enter, etc.) was pressed. Start the game.
+                    waiting = False
+            # --- NEW LOGIC ENDS HERE ---
+            # if keystate[pg.K_ESCAPE]:
+            #     pg.quit()
+            #     exit()
+            # if event.type == pg.KEYUP:
+            #     waiting = False
 
 
 def show_go_screen():
@@ -98,16 +109,27 @@ def show_go_screen():
     waiting = True
     while waiting:
         clock.tick(FPS)
-        keystate = pg.key.get_pressed()
+        # keystate = pg.key.get_pressed()
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 pg.quit()
                 exit()
-            if keystate[pg.K_ESCAPE]:
-                pg.quit()
-                exit()
-            if event.type == pg.KEYUP:
-                waiting = False
+            # --- NEW LOGIC STARTS HERE ---
+            if event.type == pg.KEYDOWN:
+                # A key was PRESSED. Now let's see which one.
+                if event.key == pg.K_ESCAPE:
+                    # Specifically, the ESC key was pressed. Quit.
+                    pg.quit()
+                    exit()                    
+                else:
+                # Any other key (Space, Enter, etc.) was pressed. Start the game.
+                    waiting = False
+            # --- NEW LOGIC ENDS HERE ---
+            # if keystate[pg.K_ESCAPE]:
+            #     pg.quit()
+            #     exit()
+            # if event.type == pg.KEYUP:
+            #     waiting = False
 
 
 class Player(pg.sprite.Sprite):
