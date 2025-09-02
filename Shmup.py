@@ -58,40 +58,37 @@ def draw_lives(surf, x, y, lives, img):
         img_rect.y = y
         surf.blit(img, img_rect)
 
+def should_continue_waiting():
+    for event in pg.event.get():
+        if event.type == pg.QUIT:
+            pg.quit()
+            exit()   
+
+        if event.type == pg.KEYDOWN:
+            # A key was PRESSED. Now let's see which one.
+            if event.key == pg.K_ESCAPE:
+                # Specifically, the ESC key was pressed. Quit.
+                pg.quit()
+                exit()                    
+            else:
+                # Any other key (Space, Enter, etc.) was pressed. Start the game.
+                return False
+    return True
 
 def show_start_screen():
     screen.blit(background, background_rect)
     draw_text(screen, "SHMUP!", 64, WIDTH / 2, HEIGHT / 4)
     draw_text(screen, "Arrow keys move, Space to fire", 22, WIDTH / 2, HEIGHT / 2)
     draw_text(screen, "Press a key to begin", 18, WIDTH / 2, HEIGHT * 3 / 4)
-    draw_text(screen, "High Score: " + str(player.highscore), 22, WIDTH / 2, 15)
-    pg.display.flip()
+    draw_text(screen, "High Score: " + str(player.highscore), 22, WIDTH / 2, 15)    
     waiting = True
-    while waiting:
-        clock.tick(FPS)
-        # keystate = pg.key.get_pressed()
-        for event in pg.event.get():
-            if event.type == pg.QUIT:
-                pg.quit()
-                exit()
-             # --- NEW LOGIC STARTS HERE ---
-            if event.type == pg.KEYDOWN:
-                # A key was PRESSED. Now let's see which one.
-                if event.key == pg.K_ESCAPE:
-                    # Specifically, the ESC key was pressed. Quit.
-                    pg.quit()
-                    exit()                    
-                else:
-                # Any other key (Space, Enter, etc.) was pressed. Start the game.
-                    waiting = False
-            # --- NEW LOGIC ENDS HERE ---
-            # if keystate[pg.K_ESCAPE]:
-            #     pg.quit()
-            #     exit()
-            # if event.type == pg.KEYUP:
-            #     waiting = False
+    while waiting:                
+        waiting = should_continue_waiting()
+        pg.display.flip()
+        clock.tick(FPS)     
+    return
 
-
+      
 def show_game_over_screen():
     screen.blit(background, background_rect)
     draw_text(screen, "GAME OVER", 48, WIDTH / 2, HEIGHT / 4)
@@ -105,31 +102,12 @@ def show_game_over_screen():
     else:
         draw_text(screen, "High Score: " + str(player.highscore), 22, WIDTH / 2, HEIGHT / 2 + 40)
 
-    pg.display.flip()
     waiting = True
-    while waiting:
+    while waiting:        
+        waiting = should_continue_waiting()
+        pg.display.flip()
         clock.tick(FPS)
-        # keystate = pg.key.get_pressed()
-        for event in pg.event.get():
-            if event.type == pg.QUIT:
-                pg.quit()
-                exit()
-            # --- NEW LOGIC STARTS HERE ---
-            if event.type == pg.KEYDOWN:
-                # A key was PRESSED. Now let's see which one.
-                if event.key == pg.K_ESCAPE:
-                    # Specifically, the ESC key was pressed. Quit.
-                    pg.quit()
-                    exit()                    
-                else:
-                # Any other key (Space, Enter, etc.) was pressed. Start the game.
-                    waiting = False
-            # --- NEW LOGIC ENDS HERE ---
-            # if keystate[pg.K_ESCAPE]:
-            #     pg.quit()
-            #     exit()
-            # if event.type == pg.KEYUP:
-            #     waiting = False
+    return
 
 
 class Player(pg.sprite.Sprite):
