@@ -92,7 +92,7 @@ def show_start_screen():
             #     waiting = False
 
 
-def show_go_screen():
+def show_game_over_screen():
     screen.blit(background, background_rect)
     draw_text(screen, "GAME OVER", 48, WIDTH / 2, HEIGHT / 4)
     draw_text(screen, "Score: " + str(score), 22, WIDTH / 2, HEIGHT / 2)
@@ -496,7 +496,7 @@ while running:
 
     if game_over:
 
-        show_go_screen()
+        show_game_over_screen()
         game_over = False
         all_sprites = pg.sprite.Group()
         mobs = pg.sprite.Group()
