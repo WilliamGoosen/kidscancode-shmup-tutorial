@@ -19,3 +19,4 @@ YELLOW = (255, 255, 0)
 
 # player attributes
 PLAYER_HIT_RADIUS = 20
+PLAYER_START_Y_OFFSET = 10

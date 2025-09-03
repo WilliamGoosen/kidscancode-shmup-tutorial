@@ -145,7 +145,7 @@ class Player(pg.sprite.Sprite):
         self.radius = PLAYER_HIT_RADIUS
         # pygame.draw.circle(self.image, RED, self.rect.center, self.radius)
         self.rect.centerx = WIDTH / 2
-        self.rect.bottom = HEIGHT - 10
+        self.rect.bottom = HEIGHT - PLAYER_START_Y_OFFSET
         self.speedx = 0
         self.shield = 100
         self.shoot_delay = 250
