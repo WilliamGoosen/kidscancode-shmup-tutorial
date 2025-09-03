@@ -153,7 +153,7 @@ class Player(pg.sprite.Sprite):
         self.lives = PLAYER_START_LIVES
         self.hidden = False
         self.hide_timer = pg.time.get_ticks()
-        self.power = 1
+        self.power = PLAYER_START_POWER
         self.power_time = pg.time.get_ticks()
         self.load_data()
       
