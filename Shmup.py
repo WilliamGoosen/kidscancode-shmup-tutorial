@@ -195,10 +195,12 @@ class Player(pg.sprite.Sprite):
 
         self.speedx = 0
         keystate = pg.key.get_pressed()
-        if keystate[pg.K_LEFT]:
+        if keystate[pg.K_LEFT] and not keystate[pg.K_RIGHT]:
             self.speedx = -8
-        if keystate[pg.K_RIGHT]:
+        elif keystate[pg.K_RIGHT] and not keystate[pg.K_LEFT]:
             self.speedx = 8
+        else:
+            self.speedx = 0
         if keystate[pg.K_SPACE]:
             self.shoot()
         self.rect.x += self.speedx
