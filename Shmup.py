@@ -142,18 +142,18 @@ class Player(pg.sprite.Sprite):
         self.image = pg.transform.scale(player_img, (50, 38))
         self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
-        self.radius = 20
+        self.radius = PLAYER_HIT_RADIUS
         # pygame.draw.circle(self.image, RED, self.rect.center, self.radius)
         self.rect.centerx = WIDTH / 2
-        self.rect.bottom = HEIGHT - 10
+        self.rect.bottom = HEIGHT - PLAYER_START_Y_OFFSET
         self.speedx = 0
-        self.shield = 100
-        self.shoot_delay = 250
+        self.shield = PLAYER_MAX_SHIELD
+        self.shoot_delay = PLAYER_SHOOT_DELAY
         self.last_shot = pg.time.get_ticks()
-        self.lives = 3
+        self.lives = PLAYER_START_LIVES
         self.hidden = False
         self.hide_timer = pg.time.get_ticks()
-        self.power = 1
+        self.power = PLAYER_START_POWER
         self.power_time = pg.time.get_ticks()
         self.load_data()
       
@@ -196,9 +196,9 @@ class Player(pg.sprite.Sprite):
         self.speedx = 0
         keystate = pg.key.get_pressed()
         if keystate[pg.K_LEFT] and not keystate[pg.K_RIGHT]:
-            self.speedx = -8
+            self.speedx = -PLAYER_SPEED
         elif keystate[pg.K_RIGHT] and not keystate[pg.K_LEFT]:
-            self.speedx = 8
+            self.speedx = PLAYER_SPEED
         else:
             self.speedx = 0
         if keystate[pg.K_SPACE]:
