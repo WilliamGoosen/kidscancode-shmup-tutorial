@@ -148,7 +148,7 @@ class Player(pg.sprite.Sprite):
         self.rect.bottom = HEIGHT - PLAYER_START_Y_OFFSET
         self.speedx = 0
         self.shield = PLAYER_MAX_SHIELD
-        self.shoot_delay = 250
+        self.shoot_delay = PLAYER_SHOOT_DELAY
         self.last_shot = pg.time.get_ticks()
         self.lives = 3
         self.hidden = False
