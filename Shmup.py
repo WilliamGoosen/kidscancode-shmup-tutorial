@@ -150,7 +150,7 @@ class Player(pg.sprite.Sprite):
         self.shield = PLAYER_MAX_SHIELD
         self.shoot_delay = PLAYER_SHOOT_DELAY
         self.last_shot = pg.time.get_ticks()
-        self.lives = 3
+        self.lives = PLAYER_START_LIVES
         self.hidden = False
         self.hide_timer = pg.time.get_ticks()
         self.power = 1
