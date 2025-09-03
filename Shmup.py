@@ -142,7 +142,7 @@ class Player(pg.sprite.Sprite):
         self.image = pg.transform.scale(player_img, (50, 38))
         self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
-        self.radius = 20
+        self.radius = PLAYER_HIT_RADIUS
         # pygame.draw.circle(self.image, RED, self.rect.center, self.radius)
         self.rect.centerx = WIDTH / 2
         self.rect.bottom = HEIGHT - 10
