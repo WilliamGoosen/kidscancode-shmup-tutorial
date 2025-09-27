@@ -38,14 +38,14 @@ This game can be packaged into a standalone application using [PyInstaller](http
     **Option 1: Create a Distribution Folder (Recommended for testing)**
     *Easier to debug if necessary, as all files are in one folder.*
     ```bash
-    pyinstaller --onedir --windowed --add-data "img;img" --add-data "snd;snd" --icon=game_icon.ico Shmup.py
+    pyinstaller --onedir --windowed --add-data "img;img" --add-data "snd;snd" --add-data "licenses;licenses" --add-data "CREDITS.txt;." --icon=game_icon.ico main.py
     ```
     *The executable (`Shmup.exe`) and all required game files will be created in the `dist/Shmup/` directory. You can distribute the entire `dist/Shmup` folder.*
 
     **Option 2: Create a Single Executable File**
     *Creates a single, portable `.exe` file for distribution.*
     ```bash
-    pyinstaller --onefile --windowed --add-data "img;img" --add-data "snd;snd" --icon=game_icon.ico Shmup.py
+    pyinstaller --onefile --windowed --add-data "img;img" --add-data "snd;snd" --add-data "licenses;licenses" --add-data "CREDITS.txt;." --icon=game_icon.ico main.py
     ```
     *A single executable file (`Shmup.exe`) will be created in the `dist/` directory.*
 
@@ -59,7 +59,11 @@ This game can be packaged into a standalone application using [PyInstaller](http
 ## Credits & Licensing
 
 - **Tutorial:** [KidsCanCode](https://www.youtube.com/c/Kidscancode)
-- **Music:** "Frozen Jam" by tgfcoder (<https://twitter.com/tgfcoder>) licensed under CC-BY-3 (<http://creativecommons.org/licenses/by/3.0/>)
+- **Music:** "Frozen Jam" by Elle Trudgett, edited by qubodup
+  - Composer: [Elle Trudgett](https://github.com/elle-trudgett) (Copyright 2008)
+  - Editor: [qubodup](https://opengameart.org/users/qubodup)
+  - Source: [OpenGameArt.org](https://opengameart.org/content/frozen-jam-seamless-loop)
+  - License: [CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/)
 - **Art Assets & Jingles:** From [Kenney.nl](https://kenney.nl/assets) (Public Domain)
 - **Sound Effects (`Explosion1.wav`, `Explosion2.wav`, `Laser_Shoot2.wav`)**: Created by [WilliamGoosen](https://github.com/WilliamGoosen) using [Bfxr](https://www.bfxr.net/).
 - **Code:** This specific implementation is by [WilliamGoosen](https://github.com/WilliamGoosen), based on the KidsCanCode tutorial.
