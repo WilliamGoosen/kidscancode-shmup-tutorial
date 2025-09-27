@@ -1,0 +1,40 @@
+CREDITS
+
+This game includes content from various sources:
+
+MUSIC
+-----
+"Frozen Jam" 
+- Original Composer: Elle Trudgett (Copyright 2008)
+- Editor: qubodup
+- Source: https://opengameart.org/content/frozen-jam-seamless-loop
+- License: Creative Commons Attribution 3.0
+- License URL: https://creativecommons.org/licenses/by/3.0/
+
+TUTORIAL BASE
+-------------
+KidsCanCode YouTube tutorial (2015)
+https://www.youtube.com/c/Kidscancode
+
+ADDITIONS & MODIFICATIONS
+-------------------------
+By WilliamGoosen
+- Boss battle implementation
+- Additional game features
+- Code modifications and extensions
+
+SOUND EFFECTS
+-------------
+Explosion1.wav, Explosion2.wav, Laser_Shoot2.wav
+- Created by WilliamGoosen using Bfxr
+- Tools: https://www.bfxr.net/
+
+ART ASSETS
+----------
+From Kenney.nl (Public Domain)
+Source: https://kenney.nl/assets
+
+GAME FRAMEWORK
+--------------
+pygame (or pygame-ce)
+License: LGPL v2.1
